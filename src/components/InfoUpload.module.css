@@ -1,0 +1,36 @@
+.upload {
+  background: var(--gray-800);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filters input {
+  margin-top: 0.25rem
+}
+
+input {
+  padding: 0.35rem;
+}
+
+button{
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  border: 0;
+  background: var(--green-500);
+  color: var(--white);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+button:hover {
+  background: var(--green-300);
+}

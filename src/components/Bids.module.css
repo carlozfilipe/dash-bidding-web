@@ -1,0 +1,13 @@
+.bid {
+  background: var(--gray-800);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+.list li {
+  margin-bottom: 2rem;
+}
