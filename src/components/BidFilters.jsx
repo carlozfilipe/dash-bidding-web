@@ -19,24 +19,22 @@ export function BidFilters() {
       });
   }, []);
 
+  function formatData(dataString) {
+    const [day, monthy, year] = dataString.split('/');
+    return new Date(`${year}-${monthy}-${day}`);
+  }
+
   const handleFilter = () => {
     const dataStartFormatted = formatData(dataStart);
     const dataEndFormatted = formatData(dataEnd);
 
-    const dadosFiltrados = data.filter((item) => {
+    const returnFilteredData = data.filter((item) => {
       const dataOpen = new Date(item.DATA_ABERTURA);
-      return (
-        dataOpen >= dataStartFormatted && dataOpen <= dataEndFormatted
-      );
+      return dataOpen >= dataStartFormatted && dataOpen <= dataEndFormatted;
     });
 
-    setDataFiltered(dadosFiltrados);
+    setDataFiltered(returnFilteredData);
   };
-
-  function formatData(dataString) {
-    const [dia, mes, ano] = dataString.split('/');
-    return new Date(`${ano}-${mes}-${dia}`);
-  }
 
   return (
     <aside className={styles.bid}>
@@ -48,7 +46,7 @@ export function BidFilters() {
           type="text"
           id="dataStart"
           value={dataStart}
-          placeholder='DD/MM/AAAA'
+          placeholder="DD/MM/AAAA"
           onChange={(e) => setDataStart(e.target.value)}
         />
 
@@ -57,7 +55,7 @@ export function BidFilters() {
           type="text"
           id="dataEnd"
           value={dataEnd}
-          placeholder='DD/MM/AAAA'
+          placeholder="DD/MM/AAAA"
           onChange={(e) => setDataEnd(e.target.value)}
         />
 

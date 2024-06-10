@@ -7,7 +7,7 @@ export function InfoUpload() {
   const [name, setName] = useState('');
   const [image, setImage] = useState(null);
 
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
     formData.append('name', name);
@@ -25,14 +25,14 @@ export function InfoUpload() {
       );
       console.log(response.data);
     } catch (error) {
-      console.error('Error uploading the data', error);
+      console.error('Error ao fazer o upload', error);
     }
-  };
+  }
 
   return (
     <div className={styles.upload}>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className={styles.filters}>
           <label>Nome:</label>
           <input
             type="text"
@@ -49,7 +49,9 @@ export function InfoUpload() {
             required
           />
         </div>
-        <button type="submit">Enviar</button>
+        <div className={styles.button}>
+          <button type="submit">Enviar</button>
+        </div>
       </form>
     </div>
   );
