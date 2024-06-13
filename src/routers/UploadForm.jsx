@@ -1,14 +1,13 @@
-import styles from './InfoUpload.module.css';
-
 import { useState } from 'react';
 import axios from 'axios';
+import styles from './UploadForm.module.css';
 
-export function InfoUpload() {
+export function UploadForm() {
   const [name, setName] = useState('');
   const [image, setImage] = useState(null);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+  async function handleSubmitForm(event) {
+    event.preventDefault();
     const formData = new FormData();
     formData.append('name', name);
     formData.append('image', image);
@@ -23,21 +22,34 @@ export function InfoUpload() {
           },
         }
       );
-      console.log(response.data);
+      if (response.status === 200) {
+        alert('Upload realizado com sucesso!');
+      }
+      console.log(response.data); // retirar este console depois
     } catch (error) {
-      console.error('Error ao fazer o upload', error);
+      console.error('Erro ao fazer o upload', error);
+      alert(`Erro ao fazer o upload. O motivo do erro é: ${error}`);
     }
   }
 
+  function handleChangeName(event) {
+    setName(event.target.value);
+  }
+
+  function handleChangeImage(event) {
+    setImage(event.target.files[0]);
+  }
+
   return (
-    <div className={styles.upload}>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.container}>
+      <form onSubmit={handleSubmitForm}>
         <div className={styles.filters}>
           <label>Nome:</label>
           <input
+            style={{ width: '100%' }}
             type="text"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={handleChangeName}
             required
           />
         </div>
@@ -45,7 +57,7 @@ export function InfoUpload() {
           <label>Imagem:</label>
           <input
             type="file"
-            onChange={(e) => setImage(e.target.files[0])}
+            onChange={handleChangeImage}
             required
           />
         </div>

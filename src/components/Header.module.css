@@ -1,12 +1,47 @@
 .header {
   background: var(--gray-800);
+  padding: 1.5rem 0;
+}
+
+.logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem 0;
-  gap: 1rem;
+  padding: 1rem 0 2rem;
+  gap: 0.5rem
 }
 
-.header img {
-  height: 3rem;
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 3rem;
+}
+
+.navbar nav ul li a {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+a:link {
+  text-decoration: none;
+  color: var(--green-300);
+  font-size: 1.1rem;
+}
+
+a:visited {
+  text-decoration: none;
+  color: var(--green-300)
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--green-100)
+}
+
+a:active {
+  text-decoration: none;
 }

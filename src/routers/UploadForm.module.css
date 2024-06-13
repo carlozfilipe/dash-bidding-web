@@ -1,8 +1,7 @@
-.bid {
+.container {
   background: var(--gray-800);
   border-radius: 8px;
-  overflow: hidden;
-  padding: 2rem;
+  padding: 5rem;
 }
 
 .filters {
@@ -12,11 +11,17 @@
 }
 
 .filters input {
-  margin-top: 0.25rem
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
 }
 
 input {
-  padding: 0.35rem;
+  padding: 0.5rem;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
 }
 
 button{
